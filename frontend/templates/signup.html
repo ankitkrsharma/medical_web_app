@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - LungScan Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <style>
+    body {
+      background: linear-gradient(to right, #e2f0fb, #ffffff);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .signup-box {
+      background: #fff;
+      padding: 2.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+    .signup-box h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #007bff;
+    }
+    .signup-box input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    .signup-box button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #007bff;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .signup-box button:hover {
+      background: #0056b3;
+    }
+    .signup-box p {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .signup-box a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    .signup-box a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-box">
+    <h2>Doctor Sign Up</h2>
+    <form id="signup-form">
+      <input type="text" id="signup-name" placeholder="Full Name" required />
+      <input type="email" id="signup-email" placeholder="Email" required />
+      <input type="password" id="signup-password" placeholder="Password" required />
+      <button type="submit">Create Account</button>
+      <p>Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+    </form>
+  </div>
+  <script>
+    document.getElementById("signup-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const res = await fetch("/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: document.getElementById("signup-name").value,
+          email: document.getElementById("signup-email").value,
+          password: document.getElementById("signup-password").value
+        })
+      });
+      const data = await res.json();
+      if (res.ok) {
+        alert("Signup successful! Please log in.");
+        window.location.href = "/login";
+      } else {
+        alert(data.message || "Signup failed");
+      }
+    });
+  </script>
+</body>
+</html>

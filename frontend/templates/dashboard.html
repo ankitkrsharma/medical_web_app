@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Doctor Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script defer src="{{ url_for('static', filename='scripts.js') }}"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+
+    <div class="sidebar">
+      <h3>List of Patients</h3>
+      <button id="add-patient-btn">Add Patient +</button>
+      <div id="patient-list" class="patient-list"></div>
+    </div>
+
+    <div class="main-panel" id="main-panel">
+      <!-- Default view -->
+      <div id="greeting-view" class="greeting-view">
+        <div class="date-block">
+          <div id="current-day"></div>
+          <div id="current-date"></div>
+        </div>
+        <h1>GREETINGS DOCTOR!</h1>
+        <h2 id="doctor-name">Please proceed with your patients on the left</h2>
+
+      </div>
+
+      <div id="patient-view" class="patient-view hidden">
+        <h2 id="selected-patient-name"></h2>
+
+        <div class="upload-box">
+          <input type="file" id="scan-file" accept="image/*" />
+          <button id="upload-btn">Upload Lung Image</button>
+        </div>
+
+        <div class="result-box" id="result-box">
+          <h3>Prediction Result</h3>
+          <div id="prediction-result">No scan uploaded yet.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="add-patient-modal" class="modal hidden">
+    <div class="modal-content">
+      <h3>Add New Patient</h3>
+      <input type="text" id="new-patient-name" placeholder="Patient Name" />
+      <input type="number" id="new-patient-age" placeholder="Age" />
+      <select id="new-patient-gender">
+        <option disabled selected>Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+      <div class="modal-actions">
+        <button id="save-patient">Save</button>
+        <button id="cancel-patient">Cancel</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
