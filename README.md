@@ -76,7 +76,7 @@ A full-stack web application designed for doctors to securely manage patient dat
 
 ---
 
-## 🛡 Security & Validation
+##  Security & Validation
 
 - Only `jpg/png` images allowed via multer filters
 - Patient and scan access is scoped to logged-in doctor
@@ -95,7 +95,7 @@ A full-stack web application designed for doctors to securely manage patient dat
 
 ---
 
-## 🧠 Future Enhancements
+##  Future Enhancements
 
 - Dockerized microservices (Frontend / Backend / ML)
 - Model retraining with improved dataset
@@ -103,7 +103,7 @@ A full-stack web application designed for doctors to securely manage patient dat
 - Patient report downloads as PDF
 
 
-## 🤝 Contributors
+##  Contributors
 
 - **Ankit Kr Sharma** – Full Stack Developer  
 
