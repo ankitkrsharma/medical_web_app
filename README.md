@@ -1,4 +1,4 @@
-# Medical Web App - Lungg Cancer Prediction System
+# Medical Web App - Lung Cancer Prediction System
 
 A full-stack web application designed for doctors to securely manage patient data and perform lung scan predictions using machine learning. It features a seamless interface for authentication, patient management, scan uploads, and AI-based result visualization.
 
