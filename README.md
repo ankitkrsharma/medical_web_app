@@ -109,9 +109,6 @@ A full-stack web application designed for doctors to securely manage patient dat
 
 ---
 
-## 📜 License
-
-This project is licensed under the MIT License.
 
 
 
